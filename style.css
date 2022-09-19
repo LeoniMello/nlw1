@@ -1,0 +1,167 @@
+
+/*removendo padrões inciais de estilo do navegador no css*/
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+/*estilo das listas ul*/
+ul {
+   list-style: none;
+}
+/*imagem de fundo*/
+body {
+   background-image: url(./assets/bg.jpg);
+   background-position: top center;
+   background-size: 100% auto;
+   background-repeat: no-repeat;
+   background-color: #121214;
+}
+/*fontes do body*/
+body * {
+   font-family: 'Inter', sans-serif;
+   line-height: 160%;
+}
+
+header {
+   margin-top: 32px;
+   height: 120px;
+}
+
+header div {
+   width: 120px;
+   margin: auto;
+   background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+   border-radius: 50%;
+   display: flex;
+   padding: 4px;
+/*animação ao passar mouse em cima*/
+   transition: transform .3s;
+}
+/*animação ao passar mouse em cima*/
+header div:hover {
+   transform: scale(1.1);
+}
+
+header div img {
+   width: 100%;
+   border-radius: 50%;
+}
+
+/*margem e posicionamento do main*/
+main {
+   max-width: 580px;
+   width: 90%;
+   margin: 32px auto;
+
+   display: flex;
+   flex-direction: column;
+   gap: 24px;
+
+}
+/*para todas as section*/
+section {
+   color: white;
+   background-image: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+   padding-top: 4px;
+   border-radius: 10px;
+}
+
+section div {
+   background-color: #2A2634;
+   padding: 32px;
+   padding-top: 24px;
+   border-radius: 8px;
+
+}
+
+/*para todo os h2 que existirem dentro do section*/
+section h2 {
+   letter-spacing: -0.47px;
+}
+/*para todos paragrafos(p) que existirem dentro do section*/
+section p {
+   letter-spacing: -0.18px;
+   color: #A1A1AA;
+}
+/*isso vai deixar o conteudo(li) flexivel dentro da caixa*/
+section ul {
+   display: flex;
+   gap: 16px;
+   
+   flex-wrap: wrap;
+
+   margin-top: 24px;
+}
+
+section ul li {
+   transition: transform .3s;
+}
+
+section ul li:hover{
+   transform: scale(1.1);
+}
+
+.games-list img {
+   width: 90px;
+   border-radius: 8px;
+}
+
+.channel-list img {
+   border-radius: 50%;
+   width: 70px;
+   border: 1px solid #443E54;
+}
+
+/*PARTE EXCLUSIVA PARA ANIMAÇÃO (ANIMATION)==============*/
+
+header div {
+   /*em uma animação eu preciso ter pelo menos duas propiedades nela
+   1-nome dela
+   2-e o tempo que ela vai executar */
+   animation: fromTop .7s .2s backwards;
+
+}
+
+main section {
+   animation: fromBotton .7s backwards;
+}
+/*ja aqui é para pegar algum elemento especifico filho que no qual tenha mais de um
+exemplo o section abaixo*/
+main section:nth-child(1) {
+   animation-delay: 0 ;
+}
+
+main section:nth-child(2) {
+   animation-delay: .4s ;
+}
+
+main section:nth-child(3) {
+   animation-delay: .7s ;
+}
+/*para criar animações primeiro preciso dar um nome a ela (fromtop)*/
+@keyframes fromTop {
+   /*depois dizer onde ela vai começar*/
+   from{
+      opacity: 0;
+      transform: translateY(-30px);
+   }
+   /*e onde ela vai terminar */
+   to{
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
+
+@keyframes fromBotton {
+   from{
+      opacity: 0;
+      transform: translateY(30px);
+   }
+
+   to{
+      opacity: 1;
+      transform: translateY(0);
+   }
+}
